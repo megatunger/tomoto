@@ -15,7 +15,7 @@ void init_slda(Rice::Module& m) {
         std::vector<tomoto::ISLDAModel::GLM> vars;
         vars.reserve(rb_vars.size());
         for (auto const& v : rb_vars) {
-          vars.push_back((tomoto::ISLDAModel::GLM) from_ruby<int>(v));
+          vars.push_back((tomoto::ISLDAModel::GLM) Rice::detail::From_Ruby<int>::convert(v));
         }
         return tomoto::ISLDAModel::create((tomoto::TermWeight)tw, k, vars, alpha, eta, mu, nu_sq, glm_param, seed);
       })

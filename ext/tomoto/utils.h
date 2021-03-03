@@ -55,7 +55,7 @@ namespace Rice::detail
       std::vector<std::string> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(from_ruby<std::string>(v));
+        res.push_back(Rice::detail::From_Ruby<std::string>::convert(v));
       }
       return res;
     }
@@ -70,7 +70,7 @@ namespace Rice::detail
       std::vector<tomoto::Float> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(from_ruby<tomoto::Float>(v));
+        res.push_back(Rice::detail::From_Ruby<tomoto::Float>::convert(v));
       }
       return res;
     }
@@ -85,7 +85,7 @@ namespace Rice::detail
       std::vector<uint64_t> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(from_ruby<uint64_t>(v));
+        res.push_back(Rice::detail::From_Ruby<uint64_t>::convert(v));
       }
       return res;
     }
