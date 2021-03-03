@@ -18,9 +18,9 @@ extern "C"
 void Init_ext()
 {
   auto m = Rice::define_module("Tomoto")
-    .define_singleton_method(
+    .define_singleton_function(
       "isa",
-      *[]() {
+      []() {
         #ifdef __AVX2__
           return "avx2";
         #elif defined(__AVX__)
