@@ -1,4 +1,4 @@
-#include <rice/Module.hpp>
+#include <rice/rice.hpp>
 
 void init_lda(Rice::Module& m);
 void init_ct(Rice::Module& m);

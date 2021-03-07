@@ -49,7 +49,9 @@ void init_dmr(Rice::Module& m) {
         Array res;
         auto utf8 = Rice::Class(rb_cEncoding).call("const_get", "UTF_8");
         for (size_t i = 0; i < dict.size(); i++) {
-          res.push(to_ruby<std::string>(dict.toWord(i)).call("force_encoding", utf8));
+          VALUE value = Rice::detail::To_Ruby<std::string>::convert(dict.toWord(i));
+          Object obj(value);
+          res.push(obj.call("force_encoding", utf8));
         }
         return res;
       })

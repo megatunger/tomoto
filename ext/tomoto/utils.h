@@ -10,7 +10,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<tomoto::Float>>
   {
-    static Object convert(std::vector<tomoto::Float> const & x)
+    static VALUE convert(std::vector<tomoto::Float> const & x)
     {
       Array res;
       for (auto const& v : x) {
@@ -23,7 +23,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<uint32_t>>
   {
-    static Object convert(std::vector<uint32_t> const & x)
+    static VALUE convert(std::vector<uint32_t> const & x)
     {
       Array res;
       for (auto const& v : x) {
@@ -36,7 +36,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<uint64_t>>
   {
-    static Object convert(std::vector<uint64_t> const & x)
+    static VALUE convert(std::vector<uint64_t> const & x)
     {
       Array res;
       for (auto const& v : x) {
@@ -49,13 +49,13 @@ namespace Rice::detail
   template<>
   struct From_Ruby<std::vector<std::string>>
   {
-    static std::vector<std::string> convert(Object x)
+    static std::vector<std::string> convert(VALUE x)
     {
       Array a = Array(x);
       std::vector<std::string> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<std::string>::convert(v));
+        res.push_back(Rice::detail::From_Ruby<std::string>::convert(v.value()));
       }
       return res;
     }
@@ -64,13 +64,13 @@ namespace Rice::detail
   template<>
   struct From_Ruby<std::vector<tomoto::Float>>
   {
-    static Foo convert(std::vector<tomoto::Float> x)
+    static std::vector<tomoto::Float> convert(VALUE x)
     {
       Array a = Array(x);
       std::vector<tomoto::Float> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<tomoto::Float>::convert(v));
+        res.push_back(Rice::detail::From_Ruby<tomoto::Float>::convert(v.value()));
       }
       return res;
     }
@@ -79,13 +79,13 @@ namespace Rice::detail
   template<>
   struct From_Ruby<std::vector<uint64_t>>
   {
-    static std::vector<uint64_t> convert(Object x)
+    static std::vector<uint64_t> convert(VALUE x)
     {
       Array a = Array(x);
       std::vector<uint64_t> res;
       res.reserve(a.size());
       for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<uint64_t>::convert(v));
+        res.push_back(Rice::detail::From_Ruby<uint64_t>::convert(v.value()));
       }
       return res;
     }
