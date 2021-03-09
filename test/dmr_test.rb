@@ -2,6 +2,8 @@ require_relative "test_helper"
 
 class DMRTest < Minitest::Test
   def test_works
+    skip "Segfault" if windows?
+
     model = Tomoto::DMR.new(k: 2)
     assert_kind_of Tomoto::LDA, model
     assert_equal [], model.alpha

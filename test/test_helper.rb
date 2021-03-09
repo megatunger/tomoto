@@ -23,4 +23,8 @@ class Minitest::Test
   def tempfile
     @tempfile ||= "#{Dir.mktmpdir}/#{Time.now.to_f}"
   end
+
+  def windows?
+    Gem.win_platform?
+  end
 end
