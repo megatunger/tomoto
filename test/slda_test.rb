@@ -2,8 +2,6 @@ require_relative "test_helper"
 
 class SLDATest < Minitest::Test
   def test_works
-    skip "Segfault" if windows?
-
     model = Tomoto::SLDA.new(vars: "l")
     assert_kind_of Tomoto::LDA, model
     assert_elements_in_delta [0.1], model.alpha
