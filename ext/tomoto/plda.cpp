@@ -13,7 +13,7 @@ void init_plda(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IPLDAModel::create((tomoto::TermWeight)tw, latent_topics, 1, alpha, eta, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::IPLDAModel& self, Object words, std::vector<std::string> labels) {

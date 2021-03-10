@@ -13,7 +13,7 @@ void init_gdmr(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IGDMRModel::create((tomoto::TermWeight)tw, k, degrees, alpha, sigma, sigma0, eta, alpha_epsilon, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::IGDMRModel& self, Object words, std::vector<tomoto::Float> metadata) {

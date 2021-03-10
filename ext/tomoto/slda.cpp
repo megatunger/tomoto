@@ -18,7 +18,7 @@ void init_slda(Rice::Module& m) {
           vars.push_back((tomoto::ISLDAModel::GLM) Rice::detail::From_Ruby<int>::convert(v.value()));
         }
         return tomoto::ISLDAModel::create((tomoto::TermWeight)tw, k, vars, alpha, eta, mu, nu_sq, glm_param, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::ISLDAModel& self, Object words, Object y) {

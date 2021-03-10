@@ -13,7 +13,7 @@ void init_hdp(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IHDPModel::create((tomoto::TermWeight)tw, k, alpha, eta, gamma, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "alpha",
       [](tomoto::IHDPModel& self) {
