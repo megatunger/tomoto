@@ -7,6 +7,7 @@ require "tmpdir"
 class Minitest::Test
   def setup
     puts "\n\n#{self.class.name}##{name}"
+    skip unless self.class.name == "SLDATest"
   end
 end
 

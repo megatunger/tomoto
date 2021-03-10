@@ -92,8 +92,8 @@ namespace Rice::detail
   };
 }
 
-inline tomoto::RawDoc buildDoc(std::vector<std::string>& words) {
+inline tomoto::RawDoc buildDoc(Object words) {
   tomoto::RawDoc doc;
-  doc.rawWords = words;
+  doc.rawWords = Rice::detail::From_Ruby<std::vector<std::string>>::convert(words.value());;
   return doc;
 }

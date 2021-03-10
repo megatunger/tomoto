@@ -2,8 +2,6 @@ require_relative "test_helper"
 
 class HDPTest < Minitest::Test
   def test_works
-    skip "Segfault" if windows?
-
     model = Tomoto::HDP.new
     assert_kind_of Tomoto::LDA, model
     assert_in_delta 0.1, model.alpha
@@ -15,8 +13,6 @@ class HDPTest < Minitest::Test
   end
 
   def test_save_load
-    skip "Segfault" if windows?
-
     model = Tomoto::HDP.new
     model.add_doc(["new", "document"])
     model.train(0)
