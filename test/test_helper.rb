@@ -31,6 +31,6 @@ class Minitest::Test
   end
 
   def windows?
-    Gem.win_platform?
+    false # Gem.win_platform?
   end
 end
