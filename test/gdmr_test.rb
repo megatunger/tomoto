@@ -2,6 +2,8 @@ require_relative "test_helper"
 
 class GDMRTest < Minitest::Test
   def test_works
+    skip "Segfault" if windows?
+
     model = Tomoto::GDMR.new(degrees: [1])
     assert_kind_of Tomoto::DMR, model
     assert_elements_in_delta [[1, 1]], model.alpha
