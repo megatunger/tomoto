@@ -52,10 +52,9 @@ namespace Rice::detail
     static std::vector<std::string> convert(VALUE x)
     {
       Array a = Array(x);
-      std::vector<std::string> res;
-      res.reserve(a.size());
-      for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<std::string>::convert(v.value()));
+      std::vector<std::string> res(a.size());
+      for (long i = 0; i < a.size(); i++) {
+        res[i] = Rice::detail::From_Ruby<std::string>::convert(a[i].value());
       }
       return res;
     }
@@ -67,10 +66,9 @@ namespace Rice::detail
     static std::vector<tomoto::Float> convert(VALUE x)
     {
       Array a = Array(x);
-      std::vector<tomoto::Float> res;
-      res.reserve(a.size());
-      for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<tomoto::Float>::convert(v.value()));
+      std::vector<tomoto::Float> res(a.size());
+      for (long i = 0; i < a.size(); i++) {
+        res[i] = Rice::detail::From_Ruby<tomoto::Float>::convert(a[i].value());
       }
       return res;
     }
@@ -82,10 +80,9 @@ namespace Rice::detail
     static std::vector<uint64_t> convert(VALUE x)
     {
       Array a = Array(x);
-      std::vector<uint64_t> res;
-      res.reserve(a.size());
-      for (auto const& v : a) {
-        res.push_back(Rice::detail::From_Ruby<uint64_t>::convert(v.value()));
+      std::vector<uint64_t> res(a.size());
+      for (long i = 0; i < a.size(); i++) {
+        res[i] = Rice::detail::From_Ruby<uint64_t>::convert(a[i].value());
       }
       return res;
     }
