@@ -16,7 +16,7 @@ void init_gdmr(Rice::Module& m) {
       })
     .define_method(
       "_add_doc",
-      [](tomoto::IGDMRModel& self, std::vector<std::string> words, std::vector<tomoto::Float> metadata) {
+      [](tomoto::IGDMRModel& self, Object words, std::vector<tomoto::Float> metadata) {
         auto doc = buildDoc(words);
         doc.misc["metadata"] = metadata;
         return self.addDoc(doc);

@@ -40,7 +40,7 @@ void init_lda(Rice::Module& m) {
       })
     .define_method(
       "_add_doc",
-      [](tomoto::ILDAModel& self, std::vector<std::string> words) {
+      [](tomoto::ILDAModel& self, Object words) {
         return self.addDoc(buildDoc(words));
       })
     .define_method(

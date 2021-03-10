@@ -21,7 +21,7 @@ void init_slda(Rice::Module& m) {
       })
     .define_method(
       "_add_doc",
-      [](tomoto::ISLDAModel& self, std::vector<std::string> words, std::vector<tomoto::Float> y) {
+      [](tomoto::ISLDAModel& self, Object words, std::vector<tomoto::Float> y) {
         auto doc = buildDoc(words);
         doc.misc["y"] = y;
         return self.addDoc(doc);
