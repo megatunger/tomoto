@@ -15,6 +15,8 @@ class HDPTest < Minitest::Test
   end
 
   def test_save_load
+    skip "Segfault" if windows?
+
     model = Tomoto::HDP.new
     model.add_doc(["new", "document"])
     model.train(0)
