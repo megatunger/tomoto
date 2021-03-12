@@ -78,7 +78,8 @@ void init_lda(Rice::Module& m) {
         Array res;
         auto n = self.getNumDocs();
         for (size_t i = 0; i < n; i++) {
-          res.push(Object(Rice::detail::To_Ruby<DocumentObject>::convert(DocumentObject(self.getDoc(i), &self), true));
+          auto v = DocumentObject(self.getDoc(i), &self);
+          res.push(Object(Rice::detail::To_Ruby<DocumentObject>::convert(v, true)));
         }
         return res;
       })
