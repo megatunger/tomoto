@@ -13,7 +13,7 @@ void init_hlda(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IHLDAModel::create((tomoto::TermWeight)tw, levelDepth, alpha, eta, gamma, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "alpha",
       [](tomoto::IHLDAModel& self) {

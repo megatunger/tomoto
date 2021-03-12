@@ -15,7 +15,7 @@ void init_dt(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IDTModel::create((tomoto::TermWeight)tw, k, t, alphaVar, etaVar, phiVar, shapeA, shapeB, shapeC, 0, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::IDTModel& self, std::vector<std::string> words, uint32_t timepoint) {

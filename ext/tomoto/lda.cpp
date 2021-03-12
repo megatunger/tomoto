@@ -37,7 +37,7 @@ void init_lda(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::ILDAModel::create((tomoto::TermWeight)tw, k, alpha, eta, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::ILDAModel& self, std::vector<std::string> words) {

@@ -13,7 +13,7 @@ void init_dmr(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IDMRModel::create((tomoto::TermWeight)tw, k, alpha, sigma, eta, alpha_epsilon, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::IDMRModel& self, std::vector<std::string> words, std::string metadata) {

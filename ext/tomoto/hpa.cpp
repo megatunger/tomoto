@@ -13,7 +13,7 @@ void init_hpa(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IHPAModel::create((tomoto::TermWeight)tw, false, k1, k2, alpha, eta, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "alpha",
       [](tomoto::IHPAModel& self) {

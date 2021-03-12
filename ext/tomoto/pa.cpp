@@ -13,7 +13,7 @@ void init_pa(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::IPAModel::create((tomoto::TermWeight)tw, k1, k2, alpha, eta, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "k1",
       [](tomoto::IPAModel& self) {

@@ -13,7 +13,7 @@ void init_ct(Rice::Module& m) {
           seed = std::random_device{}();
         }
         return tomoto::ICTModel::create((tomoto::TermWeight)tw, k, alpha, eta, seed);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_correlations",
       [](tomoto::ICTModel& self, tomoto::Tid topic_id) {

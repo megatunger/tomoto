@@ -10,7 +10,7 @@ void init_mglda(Rice::Module& m) {
       "_new",
       [](size_t tw, size_t k_g, size_t k_l, size_t t, tomoto::Float alpha_g, tomoto::Float alpha_l, tomoto::Float alpha_mg, tomoto::Float alpha_ml, tomoto::Float eta_g) {
         return tomoto::IMGLDAModel::create((tomoto::TermWeight)tw, k_g, k_l, t, alpha_g, alpha_l, alpha_mg, alpha_ml, eta_g);
-      })
+      }, Rice::Return().takeOwnership())
     .define_method(
       "_add_doc",
       [](tomoto::IMGLDAModel& self, std::vector<std::string> words, std::string delimiter) {
