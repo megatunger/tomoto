@@ -10,7 +10,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<tomoto::Float>>
   {
-    static VALUE convert(std::vector<tomoto::Float> const & x)
+    static VALUE convert(std::vector<tomoto::Float> const & x, bool takeOwnership = false)
     {
       Array res;
       for (auto const& v : x) {
@@ -23,7 +23,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<uint32_t>>
   {
-    static VALUE convert(std::vector<uint32_t> const & x)
+    static VALUE convert(std::vector<uint32_t> const & x, bool takeOwnership = false)
     {
       Array res;
       for (auto const& v : x) {
@@ -36,7 +36,7 @@ namespace Rice::detail
   template<>
   struct To_Ruby<std::vector<uint64_t>>
   {
-    static VALUE convert(std::vector<uint64_t> const & x)
+    static VALUE convert(std::vector<uint64_t> const & x, bool takeOwnership = false)
     {
       Array res;
       for (auto const& v : x) {
