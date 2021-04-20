@@ -85,7 +85,7 @@ module Tomoto
       TERM_WEIGHT[_tw]
     end
 
-    private
+    
 
     def prepare
       unless defined?(@prepared)
